@@ -1,0 +1,71 @@
+- ão Estruturada típicamente segue uma única rotina
+- Acesso às variáveis não é tão restrito em Programação Estruturada como é em POO, forçando o uso de variáveis globais (o que não é recomendado já que é uma prática de programação danosa ao desenvolvimento de sistemas. Variáveis Globais)
+- POO surge como alternativa a essas características, aproximando a programação de “objetos” do mundo real
+- Esse novo paradigma de programação se baseia nos conceitos de: Classe e Objeto. Qualquer outro conceito de POO se apoia nestes dois.
+
+## Classes e Objetos
+
+---
+
+1. É um conjunto de características e comportamentos que definem o conjunto de objetos pertencentes à essa classe.
+2. Tem como objetivo abstrair objetos reais para o ambiente de código (instanciação de classe).
+
+### Encapsulamento, herança, interface e polimorfismo:
+
+As dusa bases de POO são “Classe” e “Objeto”, mas existem outros conceitos que derivam destes para melhor definir o paradigma de código POO e contemplar mais problemas de programação estruturada.
+
+1. **Encapsulamento:** Uma classe carro possui atributos (características) e comportamentos (métodos). O seu conjunto de métodos utilizam outros métodos e também alguns atributos para desempenhas as suas funções (acelerar, frear, mudar de faixa). A livre alteração desses componentes com o objetivo de aumentar o limite máximo de velociadade, por exemplo, pode gerar efeitos imprevisiveis em outros componentes de forma imprevissível.
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5c40887f-d589-448a-b910-04521d43d773/Untitled.png)
+
+Assim, essas alterações não permitidas para além da classe é denominado de encapsulamento, isto é, os atributos ou métodos não são visíveis para além do objeto ou classe (privados)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/248ddaaa-7520-48b5-a1c8-c25cd742907e/Untitled.png)
+
+Externamente à classe, ações como acelerar ou frear não são “vistas”,isto é, não sabemos como são desempenhadas, nós só sabemos que elas acontecem. Para ler ou alterar um atributo encapsulado pode ser feito via *getters* e *setters*
+
+O principal objetivo do encapsulamento é dificultar o vazamento de escopo. Essa definição de escopo evita o uso de variáveis globais em um programa, facilitando a identificação do estado da variável em cada momento.
+
+1. **Herança:** É uma relação pai e filho traduzida para classes, onde a classe pai estabelece métodos que são herdados para a class filho, que as modifica ou adiciona novas. 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4ab8c987-d008-4104-ae6e-352097ea9a9d/Untitled.png)
+
+  
+
+Exemplificando, uma classe pai mesa abstrai do mundo real as principais caracteristicas de uma mesa, como possuir um tampo, o que é um “pé de mesa”, número mínimo de “pés de mesa” etc. Uma classe filha herda essas características, e adiciona as suas especificidades, dizendo se esta mesa é uma mesa de jantar, uma mesinha de centro, uma mesa de plastico ou até uma mesa com somente 3 pés.
+
+1. **Interface:** Havendo uma redudancia entre classes que estão abstraindo objetos com muitos comportamentos comuns, podemos unifica-las em uma interface, a qual passa a ser herdada pelas outras classes.
+    
+    Entretanto, a interface não é exatamente uma classe. Ela é melhor definida como um conjunto de métodos que são herdados por uma classe. Basicamente, a classe que faz uso desse conjuto de métodos dá à “classe implementadora” o título de interface.
+    
+    > Uma interface não é herdada, mas sim, implementada por uma classe. Uma interface pode no entanto herdar uma outra interface.
+    > 
+    
+    Dentro do exemplo de classe mesa, poderiamos abstraíla para uma interface mesa. Uma classe pai poderia implementa-la como mesa de escritório, e uma classe filha poderia implementar mesa de escritório sob medida, ou até mesa de escritório com gavetas. Em nível de interface, a nossa interface mesa poderia herdar uma interface móveis.
+    
+2. **Polimorfismo:** Digamos que você comprou uma nova mesa de escritório que possui uma bandeja para apoio de teclado, e que na sua antiga mesa você apoiava o teclado diretamente na superficie da mesa. Ambas oferecem o apoio para um teclado, mas que funcionam de manteiras diferentes. Essa característica é denominada em POO de polimorfismo.
+    
+    Temos uma subdivisão de polimorfismo, em estático (Sobrecarga) e dinâmico (Sobreposição):
+    
+    - Dinâmico (Sobreposição): Usando o exemplo de uma aplicação que abstrai um pagamento. Não se sabe a forma de pagamento (boleto, espécie, cartão), o que se sabe é que existe um classe pagamento que irá executar a função pagar.
+        
+        A forma de pagamento (boleto, espécie, cartão) escolhida irá implementar a classe pagamento. Essa possiblidade de alteração de quem irá fazer a implementação da classe pagamento é o polimorfismo dinâmico. Isto é, acontece na herança, quando a subclasse sobrepõe o método original.
+        
+    - Estático (Sobrecarga): Se para esse exemplo, tivessemos a classe pagamento com a mesma operação pagar implementada para cada uma das formas de pagamento (boleto, espécie, cartão), teríamos o polimorfísmo estático. Isto é, se dá quando temos a mesma operação implementada várias vezes na mesma classe. A escolha de qual operação será chamada depende da assinatura dos métodos sobrecarregados.
+
+## Desing Patterns
+
+---
+
+Algumas situações em código acontecem com tanta frequência que foram criados padrões de código (desing patterns) afim de evitá-los e resolve-los. A principal referência literária para Desing Patterns é o  **Gof:Gang of Four** para grandes projetos.
+
+## Clean Code e SOLID
+
+---
+
+Em projetos que fazem uso de POO, o código tem boas chances de se tornar complexo e de dificil entendimento. A partir disso, boas práticas de código foram desenvolvidas, como por exemplo:
+
+- KISS (*Keep It Simple, Stupid*, "Mantenha as coisas simples"): sempre que um código for escrito, ele deve ser escrito o mais simples possível.
+- DRY (*Don't Repeat Yourself*, "Não se repita"): todo código escrito para reolver uma dada situação, deve ser escrito somente uma vez.
+
+Além do Desing Patterns, exitem uma série de técnicas, que ajudam a escrever um código orientado a objetos mais maleável, possibilitando manutenção e expansão mais orgânica e descomplicada ao longo do tempo.
